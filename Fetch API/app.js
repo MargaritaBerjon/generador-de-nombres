@@ -29,15 +29,10 @@ function callApiAjax(ev) {
       let results = names.results
       let htmlNames = '<h2> Nombres generados</h2>';
       htmlNames += '<ul>'
-
       results.forEach(
-        result => {
-          htmlNames += `
-        <li>${result.name.first}</li>
-        `;
-
-        })
+        result => { htmlNames += `<li>${result.name.first}</li>`; })
       htmlNames += '</ul>';
+
       document.getElementById('js-result').innerHTML = htmlNames;
 
     }).catch(error => {
