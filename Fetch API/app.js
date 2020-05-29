@@ -24,25 +24,23 @@ function callApiAjax(ev) {
   }
 
   fetch(ENDPOINT)
-    .then(function (res) {
-      return res.json();
-    })
-    .then(function (names) {
+    .then(res => res.json())
+    .then(names => {
       let results = names.results
-
       let htmlNames = '<h2> Nombres generados</h2>';
       htmlNames += '<ul>'
 
-      results.forEach(function (result) {
-        htmlNames += `
+      results.forEach(
+        result => {
+          htmlNames += `
         <li>${result.name.first}</li>
         `;
 
-      })
+        })
       htmlNames += '</ul>';
       document.getElementById('js-result').innerHTML = htmlNames;
 
-    }).catch(function (error) {
+    }).catch(error => {
       console.log(error);
 
     })
